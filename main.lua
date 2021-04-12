@@ -26,7 +26,7 @@ function love.load()
 
     Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_CONFIG)
 
-    sprite:changeAnimation('run')
+    sprite:changeAnimation('swim')
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsClicked = {}
