@@ -65,7 +65,7 @@ end
 function love.draw()
     Push:start()
 
-    love.graphics.clear(RgbaToLove(60, 64, 198, 255))
+    love.graphics.clear(RgbaToLove(75, 207, 250, 255))
     sprite:draw()
 
     DisplayFPS()

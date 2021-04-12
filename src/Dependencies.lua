@@ -27,9 +27,9 @@ G_Fonts = {
 }
 
 G_Textures = {
-    ['foxy'] = love.graphics.newImage('assets/graphics/foxy.png'),
+    ['mario'] = love.graphics.newImage('assets/graphics/mario.png'),
 }
 
 G_Frames = {
-    ['foxy'] = GenerateQuads(G_Textures['foxy'], TILE_SIZE, TILE_SIZE),
+    ['mario'] = GenerateQuads(G_Textures['mario'], TILE_SIZE, TILE_SIZE),
 }
