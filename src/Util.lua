@@ -29,6 +29,10 @@ function GenerateQuads(atlas, tw, th)
     return spritesheet
 end
 
+function RgbaToLove(r, g, b, a)
+    return { r/255, g/255, b/255, a/255 }
+end
+
 function Uuid()
     local seed={'e','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'}
     local tb={}
@@ -59,8 +63,8 @@ function Dump(t)
 end
 
 function DisplayFPS()
-    love.graphics.setFont(G_Fonts['small'])
-    love.graphics.setColor(0, 1, 0, 0.5)
+    love.graphics.setFont(G_Fonts['medium'])
+    love.graphics.setColor(RgbaToLove(11, 232, 129, 255))
     love.graphics.print('FPS: ' .. love.timer.getFPS(), 8, VIRTUAL_HEIGHT - TILE_SIZE)
     love.graphics.setColor(1, 1, 1, 1)
 end
