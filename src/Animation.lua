@@ -9,6 +9,7 @@
 local Animation = Class:extends('Animation')
 
 function Animation:new(data)
+    self.name = data.name
     self.texture = data.texture
     self.frames = data.frames
     self.fps = data.fps
@@ -36,7 +37,7 @@ function Animation:update(dt)
             self.timer = self.timer % 1 / self.fps
             self.currentFrame = math.max(1, (self.currentFrame + 1) % (#self.frames + 1))
 
-            -- if we played more than once, record it
+            -- if animation played at least once, record it
             if self.currentFrame == 1 then
                 self.timesPlayed = self.timesPlayed + 1
             end

@@ -11,10 +11,11 @@ local Sprite = Class:extends('Sprite')
 function Sprite:new(data)
     self.animations = self:createAnimations(data.animations)
     self.position = data.position
+    self.size = data.size
+
     self.rotation = data.rotation or 0
-    
     self.scale = data.scale or Vector2(1, 1)
-    self.origin = data.origin or Vector2()
+    self.origin = data.origin or Vector2(self.size.x / 2, self.size.y / 2)
 
     self.currentAnimation = nil
 end
@@ -24,6 +25,7 @@ function Sprite:createAnimations(animations)
 
     for k,animation in pairs(animations) do
         anims[k] = Animation {
+            name = k,
             texture = animation.texture,
             frames = animation.frames,
             fps = animation.fps,
@@ -34,8 +36,8 @@ function Sprite:createAnimations(animations)
     return anims
 end
 
-function Sprite:changeAnimation(animationId)
-    self.currentAnimation = self.animations[animationId]
+function Sprite:changeAnimation(name)
+    self.currentAnimation = self.animations[name]
 end
 
 function Sprite:update(dt)

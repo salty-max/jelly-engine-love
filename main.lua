@@ -16,8 +16,8 @@ require 'src/Dependencies'
 local sprite = Sprite {
     animations = ENTITY_DEFS['player'].animations,
     position = Vector2(VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2),
+    size = Vector2(TILE_SIZE, TILE_SIZE),
     scale = Vector2(4, 4),
-    origin = Vector2(TILE_SIZE / 2, TILE_SIZE / 2)
 }
 
 function love.load()
