@@ -15,13 +15,13 @@ function Animation:new(data)
     self.fps = data.fps
     self.looping = data.looping or false
 
-    self.timer = 1 / self.fps
+    self.timer = 0
     self.currentFrame = 1
     self.timesPlayed = 0
 end
 
 function Animation:refresh()
-    self.timer = 1 / self.fps
+    self.timer = 0
     self.currentFrame = 1
 end
 
@@ -31,9 +31,9 @@ function Animation:update(dt)
 
     -- no need to update if only one frame
     if #self.frames > 1 then
-        self.timer = self.timer - dt
+        self.timer = self.timer + dt
 
-        if self.timer <= 0 then
+        if self.timer > 1 / self.fps then
             self.timer = self.timer % 1 / self.fps
             self.currentFrame = math.max(1, (self.currentFrame + 1) % (#self.frames + 1))
 
