@@ -60,7 +60,7 @@ end
 
 function DisplayFPS()
     love.graphics.setFont(G_Fonts['small'])
-    love.graphics.setColor(0, 1, 0, 1)
+    love.graphics.setColor(0, 1, 0, 0.5)
     love.graphics.print('FPS: ' .. love.timer.getFPS(), 8, VIRTUAL_HEIGHT - TILE_SIZE)
     love.graphics.setColor(1, 1, 1, 1)
 end
