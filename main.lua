@@ -62,9 +62,12 @@ end
 
 function love.draw()
     Push:start()
+    love.graphics.setFont(G_Fonts['small'])
     love.graphics.setColor(1, 1, 1, 1)
     love.graphics.print("Hello World!", 8, 8)
     love.graphics.setColor(128/255, 64/255, 1, 1)
     love.graphics.rectangle('fill', x, VIRTUAL_HEIGHT / 2 - height / 2, width, height)
+
+    DisplayFPS()
     Push:finish()
 end
