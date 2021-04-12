@@ -9,6 +9,7 @@
 local Animation = Class:extends('Animation')
 
 function Animation:new(data)
+    self.texture = data.texture
     self.frames = data.frames
     self.fps = data.fps
     self.looping = data.looping or false
