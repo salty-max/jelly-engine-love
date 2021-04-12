@@ -6,24 +6,17 @@
     https://github.com/salty-max
 ]]
 
-function GenerateQuads(atlas, tw, th)
-    local spritesheet = {}
-    local sheetWidth = atlas:getWidth() / tw
-    local sheetHeight = atlas:getHeight() / th
+function GenerateQuads(atlas, tileWidth, tileHeight)
+    local sheetWidth =  atlas:getWidth() / tileWidth
+    local sheetHeight =  atlas:getHeight() / tileHeight
     local sheetCounter = 1
-    local x = 0
-    local y = 0
+    local spritesheet = {}
 
-    for row = 1, sheetHeight do
-        for col = 1, sheetWidth do
-            local quad = love.graphics.newQuad(x, y, TILE_SIZE, TILE_SIZE, atlas:getDimensions())
-            table.insert(spritesheet, quad)
+    for y = 0, sheetHeight - 1 do
+        for x = 0, sheetWidth - 1 do
+            spritesheet[sheetCounter] = love.graphics.newQuad(x * tileWidth, y * tileHeight, tileWidth, tileHeight, atlas:getDimensions())
             sheetCounter = sheetCounter + 1
-
-            x = x + TILE_SIZE
         end
-
-        y = y + TILE_SIZE
     end
 
     return spritesheet
