@@ -15,6 +15,7 @@ function Class:new() end
 
 -- extend base Class
 function Class:extends(type)
+    assert(type(type) == 'string', 'Class:extends -> type must be a string')
     local cls = {}
 
     cls.type = type
