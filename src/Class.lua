@@ -14,11 +14,12 @@ Class.__index = Class
 function Class:new() end
 
 -- extend base Class
-function Class:extends(type)
-    assert(type(type) == 'string', 'Class:extends -> type must be a string')
+function Class:extends(t)
+    assert(type(t) == 'string', 'Class:extends -> type must be a string')
     local cls = {}
 
-    cls.type = type
+    cls['__call'] = Class.__call
+    cls.type = t
     cls.__index = cls
     cls.super = self
 
