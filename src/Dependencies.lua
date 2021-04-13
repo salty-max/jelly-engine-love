@@ -9,9 +9,20 @@
 require 'src/constants'
 require 'src/Util'
 
+require 'src/data/entity_defs'
+
 Push = require 'lib/push'
 Timer = require 'lib/knife/timer'
 Event = require 'lib/knife/event'
+
+Class = require('src/modules/Class')
+Sprite = require('src/Sprite')
+Vector2 = require('src/modules/Vector2')
+Animation = require('src/modules/Animation')
+
+G_Sounds = {
+    ['jump'] = love.audio.newSource('assets/sounds/smb_jump-small.wav', 'static')
+}
 
 G_Fonts = {
     ['small'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE / 4),
@@ -20,9 +31,9 @@ G_Fonts = {
 }
 
 G_Textures = {
-    ['foxy'] = love.graphics.newImage('assets/graphics/foxy.png'),
+    ['mario'] = love.graphics.newImage('assets/graphics/mario.png'),
 }
 
 G_Frames = {
-    ['foxy'] = GenerateQuads(G_Textures['foxy'], TILE_SIZE, TILE_SIZE),
+    ['mario'] = GenerateQuads(G_Textures['mario'], TILE_SIZE, TILE_SIZE),
 }
