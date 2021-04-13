@@ -21,6 +21,7 @@ local sprite = Sprite {
 }
 
 local KM = KeyboardManager()
+local GPM = GamepadManager()
 
 function love.load()
     love.window.setTitle(TITLE)
@@ -69,6 +70,7 @@ function love.update(dt)
     end
 
     KM:update(dt)
+    GPM:update(dt)
 end
 
 function love.draw()
