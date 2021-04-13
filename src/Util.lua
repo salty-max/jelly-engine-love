@@ -16,7 +16,6 @@ function GenerateQuads(atlas, tileWidth, tileHeight, paddingX, paddingY)
 
     for y = 0, sheetHeight - 1 do
         for x = 0, sheetWidth - 1 do
-            print((x * tileWidth) + ox, (y * tileHeight) + oy)
             spritesheet[sheetCounter] = love.graphics.newQuad((x * tileWidth) + ox, (y * tileHeight) + oy, tileWidth, tileHeight, atlas:getDimensions())
             sheetCounter = sheetCounter + 1
         end

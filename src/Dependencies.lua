@@ -6,19 +6,37 @@
     https://github.com/salty-max
 ]]
 
+--[[
+    MISC
+]]
 require 'src/constants'
 require 'src/Util'
 
+--[[
+    DATA DEFINITIONS
+]]
 require 'src/data/entity_defs'
 
+--[[
+    LIBRARIES
+]]
 Push = require 'lib/push'
 Timer = require 'lib/knife/timer'
 Event = require 'lib/knife/event'
 
+--[[
+    MODULES
+]]
 Class = require('src/modules/Class')
-Sprite = require('src/Sprite')
 Vector2 = require('src/modules/Vector2')
 Animation = require('src/modules/Animation')
+Keyboard = require('src/modules/Keyboard')
+
+Sprite = require('src/Sprite')
+
+--[[
+    ASSETS
+]]
 G_Sounds = {
     ['jump'] = love.audio.newSource('assets/sounds/smb_jump-small.wav', 'static')
 }
