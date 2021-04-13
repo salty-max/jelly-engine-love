@@ -31,15 +31,20 @@ function love.load()
     
     KM:hookLoveEvents()
 
-    EM = EventManager()
-    EM:add('on_space')
-    EM:hook('on_space', OnSpace)
+    Event = Event()
+    Event:add('on_space')
+    Event:hook('on_space', function()
+        print('Spaace... SPAAAAAAAACE!')
+    end)
+
+    GPM.event:hook('controller_added', function(joyId)
+        print('controller ' ..joyId.. ' added')
+    end)
+    GPM.event:hook('controller_removed', function(joyId)
+        print('controller ' ..joyId.. ' removed')
+    end)
     
     sprite:changeAnimation('swim')
-end
-
-function OnSpace()
-    print('Spaace... SPAAAAAAAACE!')
 end
 
 function love.resize(w, h)
@@ -64,7 +69,7 @@ function love.update(dt)
     end
     
     if KM:keydown('space') or GPM:buttondown(1, 'a') then
-        EM:dispatch('on_space')
+        Event:dispatch('on_space')
         G_Sounds['jump']:stop()
         G_Sounds['jump']:play()
     end
