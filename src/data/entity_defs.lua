@@ -3,32 +3,36 @@ ENTITY_DEFS = {
     ['player'] = {
         animations = {
             ['idle'] = {
-                frames = {1},
-                texture = 'mario'
+                frames = {1, 2, 3 ,4},
+                fps = 6,
+                looping = true,
+                texture = 'dude'
             },
             ['jump'] = {
-                frames = {6},
-                texture = 'mario'
+                frames = {13, 14, 15},
+                fps = 6,
+                looping = true,
+                texture = 'dude'
             },
             ['death'] = {
-                frames = {7},
-                texture = 'mario'
+                frames = {5},
+                texture = 'dude'
             },
             ['run'] = {
-                frames = {2, 3, 4},
+                frames = {7, 8, 9, 10, 11, 12},
                 fps = 6,
                 looping = true,
-                texture = 'mario'
+                texture = 'dude'
             },
             ['swim-idle'] = {
-                frames = {10},
-                texture = 'mario'
+                frames = {24},
+                texture = 'dude'
             },
             ['swim'] = {
-                frames = {10, 11, 12, 13, 14},
+                frames = {19, 20, 21, 22, 23, 24},
                 fps = 6,
                 looping = true,
-                texture = 'mario'
+                texture = 'dude'
             }
         }
     }

@@ -6,15 +6,19 @@
     https://github.com/salty-max
 ]]
 
-function GenerateQuads(atlas, tileWidth, tileHeight)
-    local sheetWidth =  atlas:getWidth() / tileWidth
-    local sheetHeight =  atlas:getHeight() / tileHeight
+local _ = {}
+
+function _.generateQuads(atlas, tileWidth, tileHeight, paddingX, paddingY)
+    local sheetWidth =  atlas:getWidth() / tileWidth - (paddingX and 2 or 0)
+    local sheetHeight =  atlas:getHeight() / tileHeight - (paddingY and 2 or 0)
     local sheetCounter = 1
     local spritesheet = {}
+    local ox = paddingX or 0
+    local oy = paddingY or 0
 
     for y = 0, sheetHeight - 1 do
         for x = 0, sheetWidth - 1 do
-            spritesheet[sheetCounter] = love.graphics.newQuad(x * tileWidth, y * tileHeight, tileWidth, tileHeight, atlas:getDimensions())
+            spritesheet[sheetCounter] = love.graphics.newQuad((x * tileWidth) + ox, (y * tileHeight) + oy, tileWidth, tileHeight, atlas:getDimensions())
             sheetCounter = sheetCounter + 1
         end
     end
@@ -22,11 +26,11 @@ function GenerateQuads(atlas, tileWidth, tileHeight)
     return spritesheet
 end
 
-function RgbaToLove(r, g, b, a)
+function _.rgbaToLove(r, g, b, a)
     return { r/255, g/255, b/255, a/255 }
 end
 
-function Uuid()
+function _.uuid()
     local seed={'e','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'}
     local tb={}
     for i=1,32 do
@@ -42,12 +46,12 @@ function Uuid()
     )
 end
 
-function Dump(t)
+function _.dump(t)
     if type(t) == 'table' then
         local s = '{ '
         for k,v in pairs(t) do
             if type(k) ~= 'number' then k = '"' ..k.. '"' end
-            s = s .. '['..k..'] = ' .. Dump(v) .. ','
+            s = s .. '['..k..'] = ' .. _.Dump(v) .. ','
         end
         return s .. '} '
     else
@@ -55,9 +59,21 @@ function Dump(t)
     end
 end
 
-function DisplayFPS()
+function _.indexOf(tbl, item)
+    if tbl == nil or item == nil then return -1 end
+
+    for i = 1, #tbl do
+        if tbl[i] == item then return i end
+    end
+
+    return -1
+end
+
+function _.displayFPS()
     love.graphics.setFont(G_Fonts['medium'])
-    love.graphics.setColor(RgbaToLove(11, 232, 129, 255))
+    love.graphics.setColor(_.rgbaToLove(11, 232, 129, 255))
     love.graphics.print('FPS: ' .. love.timer.getFPS(), 8, VIRTUAL_HEIGHT - TILE_SIZE)
     love.graphics.setColor(1, 1, 1, 1)
 end
+
+return _

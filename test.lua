@@ -1,4 +1,4 @@
-Class = require 'src/Class'
+Class = require 'src/modules/Class'
 
 local Animal = Class:extends('Animal')
 
@@ -22,3 +22,5 @@ print(c:getType())
 local Neko = Cat:extends('Neko')
 local n = Neko()
 print(n:getType(), n.super:getType(), n.super.super:getType())
+print(n:is(Neko))
+print(n:isType('Neko'))
