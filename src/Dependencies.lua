@@ -19,6 +19,7 @@ Class = require('src/modules/Class')
 Sprite = require('src/Sprite')
 Vector2 = require('src/modules/Vector2')
 Animation = require('src/modules/Animation')
+
 G_Sounds = {
     ['jump'] = love.audio.newSource('assets/sounds/smb_jump-small.wav', 'static')
 }
