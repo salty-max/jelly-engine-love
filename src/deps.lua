@@ -6,6 +6,8 @@
     https://github.com/salty-max
 ]]
 
+require 'lib.jelly.Dependencies'
+
 --[[
     MISC
 ]]
@@ -21,7 +23,6 @@ require 'src.data.entity_defs'
 ]]
 Push = require 'lib.push'
 Timer = require 'lib.knife.timer'
-_ = require 'lib.jelly.Util'
 -- Event = require 'lib.knife.event'
 
 --[[

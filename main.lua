@@ -21,7 +21,7 @@ local sprite = Sprite {
 }
 
 local KM = KeyboardManager()
-local GPM = GamepadManager()
+local GPM = GamepadManager(true)
 
 function love.load()
     love.window.setTitle(TITLE)
@@ -53,17 +53,17 @@ function love.update(dt)
     
     sprite:update(dt)
     
-    if KM:key('left') then
+    if KM:key('left') or GPM:button(1, 'dpleft') then
         sprite:flipH(true)
         sprite:changeAnimation('run')
-    elseif KM:key('right') then
+    elseif KM:key('right') or GPM:button(1, 'dpright') then
         sprite:flipH(false)
         sprite:changeAnimation('run')
     else
         sprite:changeAnimation('idle')
     end
     
-    if KM:keydown('space') then
+    if KM:keydown('space') or GPM:buttondown(1, 'a') then
         EM:dispatch('on_space')
         G_Sounds['jump']:stop()
         G_Sounds['jump']:play()
