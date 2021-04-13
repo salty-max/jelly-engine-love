@@ -6,11 +6,13 @@
     https://github.com/salty-max
 ]]
 
+require 'lib.jelly.conf.config'
+
 local GamepadManager = Class:extends('GamepadManager')
 
 local function hookLoveEvents(self)
     function love.joystickadded(joystick)
-        local id = joystick.getID()
+        local id = joystick:getID()
 
         assert(self.connectedSticks[id] == nil, string.format('Joystick "%s" already exists', id))
 
@@ -22,7 +24,7 @@ local function hookLoveEvents(self)
     end
     
     function love.joystickremoved(joystick)
-        local id = joystick.getID()
+        local id = joystick:getID()
         
         assert(self.connectedSticks[id], string.format('Joystick "%s" does not exist', id))
         
@@ -34,18 +36,22 @@ local function hookLoveEvents(self)
     end
 
     function love.gamepadpressed(joystick, button)
-        local id = joystick.getID()
+        local id = joystick:getID()
+        print(button)
         self.buttonMap[id][button] = true
     end
 
     function love.gamepadreleased(joystick, button)
-        local id = joystick.getID()
+        local id = joystick:getID()
         self.buttonMap[id][button] = false
     end
 end
 
-function GamepadManager:new()
+function GamepadManager:new(adEnabled)
     love.joystick.loadGamepadMappings('lib/jelly/data/gamecontrollerdb.txt')
+
+    -- if true, the left analog joystick axes will be converted to their corresponding dpad buttons
+    self.adEnabled = adEnabled
 
     -- currently connected joysticks
     self.connectedSticks = {}
@@ -58,15 +64,38 @@ function GamepadManager:new()
     hookLoveEvents(self)
 end
 
+function GamepadManager:exists(joyID)
+    return self.isConnected[joyID]
+end
+
+function GamepadManager:getStick(joyId)
+    return self.connectedSticks[joyId]
+end
+
 --[[
     Returns the state of the requested button for the given joystick
 ]]
 function GamepadManager:button(joyID, button)
     local stick = self.connectedSticks[joyID]
-    if not self.isConnected[joyID] or stick == nil then return false end
+    if not self.isConnected[joyID] then return false end
 
     local isDown = stick:isGamepadDown(button)
-    -- TODO: More code!
+    
+    -- do the left joystick act as a d-pad?
+    if self.adEnabled and not isDown then
+        local xAxis = stick:getGamepadAxis('leftx')
+        local yAxis = stick:getGamepadAxis('lefty')
+
+        if button == 'dpleft' then
+            isDown = xAxis < -DEAD_ZONE
+        elseif button == 'dpright' then
+            isDown = xAxis > DEAD_ZONE
+        elseif button == 'dpup' then
+            isDown = yAxis < -DEAD_ZONE
+        elseif button == 'dpdown' then
+            isDown = yAxis > DEAD_ZONE
+        end
+    end
 
     return isDown
 end
@@ -86,6 +115,13 @@ function GamepadManager:buttonup(joyID, button)
 end
 
 function GamepadManager:update(dt)
-    -- TODO: Update the button states for all connected joysticks
+    -- update the button states for all connected joysticks
+    for i = 1, #self.isConnected do
+        if self.buttonMap[i] then
+            for k,_ in pairs(self.buttonMap[i]) do
+                self.buttonMap[i][k] = nil
+            end
+        end
+    end
 end
 return GamepadManager
