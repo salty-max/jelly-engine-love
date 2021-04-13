@@ -20,6 +20,10 @@ ENTITY_DEFS = {
                 looping = true,
                 texture = 'mario'
             },
+            ['swim-idle'] = {
+                frames = {10},
+                texture = 'mario'
+            },
             ['swim'] = {
                 frames = {10, 11, 12, 13, 14},
                 fps = 6,
