@@ -51,7 +51,7 @@ function Sprite:draw()
         G_Textures[self.currentAnimation.texture],
         G_Frames[self.currentAnimation.texture][self.currentAnimation:getCurrentFrame()],
         self.position.x, self.position.y,
-        math.rad(self.rotation), self.scale.x, self.scale.y,
+        math.rad(self.rotation), self.scale.x * SCALE_FACTOR, self.scale.y * SCALE_FACTOR,
         self.origin.x, self.origin.y
     )
 end

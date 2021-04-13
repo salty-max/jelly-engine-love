@@ -17,7 +17,6 @@ local sprite = Sprite {
     animations = ENTITY_DEFS['player'].animations,
     position = Vector2(VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2),
     size = Vector2(TILE_SIZE, TILE_SIZE),
-    scale = Vector2(4, 4),
 }
 
 function love.load()
@@ -57,6 +56,21 @@ function love.update(dt)
     if dt > 0.036 then return end
     
     sprite:update(dt)
+
+    if love.keyboard.isDown('left') then
+        sprite.scale.x = -1
+        sprite:changeAnimation('run')
+    elseif love.keyboard.isDown('right') then
+        sprite.scale.x = 1
+        sprite:changeAnimation('run')
+    else
+        sprite:changeAnimation('idle')
+    end
+
+    if love.keyboard.wasPressed('space') then
+        G_Sounds['jump']:stop()
+        G_Sounds['jump']:play()
+    end
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsClicked = {}

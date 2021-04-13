@@ -19,6 +19,9 @@ Class = require('src/Class')
 Sprite = require('src/Sprite')
 Vector2 = require('src/Vector2')
 Animation = require('src/Animation')
+G_Sounds = {
+    ['jump'] = love.audio.newSource('assets/sounds/smb_jump-small.wav', 'static')
+}
 
 G_Fonts = {
     ['small'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE / 4),
