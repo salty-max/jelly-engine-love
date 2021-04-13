@@ -11,7 +11,7 @@ io.stdout:setvbuf("no")
 
 love.graphics.setDefaultFilter('nearest', 'nearest')
 
-require 'src/Dependencies'
+require 'src.deps'
 
 local sprite = Sprite {
     animations = ENTITY_DEFS['player'].animations,

@@ -9,31 +9,31 @@
 --[[
     MISC
 ]]
-require 'src/constants'
-_ = require 'src/Util'
+require 'src.constants'
 
 --[[
     DATA DEFINITIONS
 ]]
-require 'src/data/entity_defs'
+require 'src.data.entity_defs'
 
 --[[
-    LIBRARIES
+     LIBRARIES
 ]]
-Push = require 'lib/push'
-Timer = require 'lib/knife/timer'
--- Event = require 'lib/knife/event'
+Push = require 'lib.push'
+Timer = require 'lib.knife.timer'
+_ = require 'lib.jelly.Util'
+-- Event = require 'lib.knife.event'
 
 --[[
     MODULES
 ]]
-Class = require('src/modules/Class')
-Vector2 = require('src/modules/Vector2')
-Animation = require('src/modules/Animation')
-Keyboard = require('src/modules/Keyboard')
-EventManager = require('src/modules/EventManager')
+Class = require('lib.jelly.modules.Class')
+Vector2 = require('lib.jelly.modules.Vector2')
+Animation = require('lib.jelly.modules.Animation')
+Keyboard = require('lib.jelly.modules.Keyboard')
+EventManager = require('lib.jelly.modules.EventManager')
 
-Sprite = require('src/Sprite')
+Sprite = require('lib.jelly.Sprite')
 
 --[[
     ASSETS
