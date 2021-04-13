@@ -6,7 +6,9 @@
     https://github.com/salty-max
 ]]
 
-function GenerateQuads(atlas, tileWidth, tileHeight, paddingX, paddingY)
+local Utils = {}
+
+function Utils.generateQuads(atlas, tileWidth, tileHeight, paddingX, paddingY)
     local sheetWidth =  atlas:getWidth() / tileWidth - (paddingX and 2 or 0)
     local sheetHeight =  atlas:getHeight() / tileHeight - (paddingY and 2 or 0)
     local sheetCounter = 1
@@ -24,11 +26,11 @@ function GenerateQuads(atlas, tileWidth, tileHeight, paddingX, paddingY)
     return spritesheet
 end
 
-function RgbaToLove(r, g, b, a)
+function Utils.rgbaToLove(r, g, b, a)
     return { r/255, g/255, b/255, a/255 }
 end
 
-function Uuid()
+function Utils.uuid()
     local seed={'e','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'}
     local tb={}
     for i=1,32 do
@@ -44,7 +46,7 @@ function Uuid()
     )
 end
 
-function Dump(t)
+function Utils.dump(t)
     if type(t) == 'table' then
         local s = '{ '
         for k,v in pairs(t) do
@@ -57,9 +59,21 @@ function Dump(t)
     end
 end
 
-function DisplayFPS()
+function Utils.indexOf(event, callback)
+    if event == nil or callback == nil then return -1 end
+
+    for i = 1, #event do
+        if event[i] == callback then return i end
+    end
+
+    return -1
+end
+
+function Utils.displayFPS()
     love.graphics.setFont(G_Fonts['medium'])
-    love.graphics.setColor(RgbaToLove(11, 232, 129, 255))
+    love.graphics.setColor(Utils.rgbaToLove(11, 232, 129, 255))
     love.graphics.print('FPS: ' .. love.timer.getFPS(), 8, VIRTUAL_HEIGHT - TILE_SIZE)
     love.graphics.setColor(1, 1, 1, 1)
 end
+
+return Utils

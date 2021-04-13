@@ -58,16 +58,16 @@ function love.update(dt)
         G_Sounds['jump']:stop()
         G_Sounds['jump']:play()
     end
-    
+
     Keyboard:update(dt)
 end
 
 function love.draw()
     Push:start()
 
-    love.graphics.clear(RgbaToLove(52, 73, 94, 255))
+    love.graphics.clear(_.rgbaToLove(52, 73, 94, 255))
     sprite:draw()
 
-    DisplayFPS()
+    _.displayFPS()
     Push:finish()
 end

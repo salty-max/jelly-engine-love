@@ -10,7 +10,7 @@
     MISC
 ]]
 require 'src/constants'
-require 'src/Util'
+_ = require 'src/Util'
 
 --[[
     DATA DEFINITIONS
@@ -52,5 +52,5 @@ G_Textures = {
 }
 
 G_Frames = {
-    ['dude'] = GenerateQuads(G_Textures['dude'], TILE_SIZE, TILE_SIZE, TILE_SIZE, TILE_SIZE),
+    ['dude'] = _.generateQuads(G_Textures['dude'], TILE_SIZE, TILE_SIZE, TILE_SIZE, TILE_SIZE),
 }
