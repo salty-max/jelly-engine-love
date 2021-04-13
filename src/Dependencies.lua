@@ -15,10 +15,10 @@ Push = require 'lib/push'
 Timer = require 'lib/knife/timer'
 Event = require 'lib/knife/event'
 
-Class = require('src/Class')
+Class = require('src/modules/Class')
 Sprite = require('src/Sprite')
-Vector2 = require('src/Vector2')
-Animation = require('src/Animation')
+Vector2 = require('src/modules/Vector2')
+Animation = require('src/modules/Animation')
 G_Sounds = {
     ['jump'] = love.audio.newSource('assets/sounds/smb_jump-small.wav', 'static')
 }
