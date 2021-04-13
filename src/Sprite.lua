@@ -12,11 +12,12 @@ function Sprite:new(data)
     self.animations = self:createAnimations(data.animations)
     self.position = data.position
     self.size = data.size
-
+    
     self.rotation = data.rotation or 0
     self.scale = data.scale or Vector2(1, 1)
     self.origin = data.origin or Vector2(self.size.x / 2, self.size.y / 2)
-
+    
+    self.flip = Vector2(1, 1)
     self.currentAnimation = nil
 end
 
@@ -40,6 +41,22 @@ function Sprite:changeAnimation(name)
     self.currentAnimation = self.animations[name]
 end
 
+function Sprite:flipH(flip)
+    if flip then
+        self.flip.x = -1
+    else
+        self.flip.x = 1
+    end
+end
+
+function Sprite:flipY(flip)
+    if flip then
+        self.flip.y = -1
+    else
+        self.flip.y = 1
+    end
+end
+
 function Sprite:update(dt)
     if self.currentAnimation then
         self.currentAnimation:update(dt)
@@ -51,7 +68,7 @@ function Sprite:draw()
         G_Textures[self.currentAnimation.texture],
         G_Frames[self.currentAnimation.texture][self.currentAnimation:getCurrentFrame()],
         self.position.x, self.position.y,
-        math.rad(self.rotation), self.scale.x * SCALE_FACTOR, self.scale.y * SCALE_FACTOR,
+        math.rad(self.rotation), self.scale.x * self.flip.x, self.scale.y * self.flip.y,
         self.origin.x, self.origin.y
     )
 end

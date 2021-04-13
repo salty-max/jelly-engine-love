@@ -17,6 +17,7 @@ local sprite = Sprite {
     animations = ENTITY_DEFS['player'].animations,
     position = Vector2(VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2),
     size = Vector2(TILE_SIZE, TILE_SIZE),
+    scale = Vector2(8, 8)
 }
 
 function love.load()
@@ -58,10 +59,10 @@ function love.update(dt)
     sprite:update(dt)
 
     if love.keyboard.isDown('left') then
-        sprite.scale.x = -1
+        sprite:flipH(true)
         sprite:changeAnimation('run')
     elseif love.keyboard.isDown('right') then
-        sprite.scale.x = 1
+        sprite:flipH(false)
         sprite:changeAnimation('run')
     else
         sprite:changeAnimation('idle')
