@@ -8,6 +8,6 @@ Vector2 = require('lib.jelly.modules.Vector2')
 Animation = require('lib.jelly.modules.Animation')
 KeyboardManager = require('lib.jelly.modules.KeyboardManager')
 GamepadManager = require('lib.jelly.modules.GamepadManager')
-EventManager = require('lib.jelly.modules.EventManager')
+Event = require('lib.jelly.modules.Event')
 
 Sprite = require('lib.jelly.Sprite')
