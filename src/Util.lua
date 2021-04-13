@@ -59,11 +59,11 @@ function _.dump(t)
     end
 end
 
-function _.indexOf(event, callback)
-    if event == nil or callback == nil then return -1 end
+function _.indexOf(tbl, item)
+    if tbl == nil or item == nil then return -1 end
 
-    for i = 1, #event do
-        if event[i] == callback then return i end
+    for i = 1, #tbl do
+        if tbl[i] == item then return i end
     end
 
     return -1

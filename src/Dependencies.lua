@@ -22,7 +22,7 @@ require 'src/data/entity_defs'
 ]]
 Push = require 'lib/push'
 Timer = require 'lib/knife/timer'
-Event = require 'lib/knife/event'
+-- Event = require 'lib/knife/event'
 
 --[[
     MODULES
@@ -31,6 +31,7 @@ Class = require('src/modules/Class')
 Vector2 = require('src/modules/Vector2')
 Animation = require('src/modules/Animation')
 Keyboard = require('src/modules/Keyboard')
+EventManager = require('src/modules/EventManager')
 
 Sprite = require('src/Sprite')
 

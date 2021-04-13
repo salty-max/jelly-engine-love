@@ -25,12 +25,20 @@ local Keyboard = Keyboard()
 function love.load()
     love.window.setTitle(TITLE)
     math.randomseed(os.time())
-
+    
     Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_CONFIG)
-
+    
     Keyboard:hookLoveEvents()
 
+    EM = EventManager()
+    EM:add('on_space')
+    EM:hook('on_space', OnSpace)
+    
     sprite:changeAnimation('swim')
+end
+
+function OnSpace()
+    print('Spaace... SPAAAAAAAACE!')
 end
 
 function love.resize(w, h)
@@ -55,6 +63,7 @@ function love.update(dt)
     end
     
     if Keyboard:keydown('space') then
+        EM:dispatch('on_space')
         G_Sounds['jump']:stop()
         G_Sounds['jump']:play()
     end
