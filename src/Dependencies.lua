@@ -30,9 +30,9 @@ G_Fonts = {
 }
 
 G_Textures = {
-    ['mario'] = love.graphics.newImage('assets/graphics/mario.png'),
+    ['dude'] = love.graphics.newImage('assets/graphics/dude.png'),
 }
 
 G_Frames = {
-    ['mario'] = GenerateQuads(G_Textures['mario'], TILE_SIZE, TILE_SIZE),
+    ['dude'] = GenerateQuads(G_Textures['dude'], TILE_SIZE, TILE_SIZE, TILE_SIZE, TILE_SIZE),
 }
