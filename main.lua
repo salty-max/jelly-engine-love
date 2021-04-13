@@ -20,7 +20,7 @@ local sprite = Sprite {
     scale = Vector2(8, 8)
 }
 
-local Keyboard = Keyboard()
+local KM = KeyboardManager()
 
 function love.load()
     love.window.setTitle(TITLE)
@@ -28,7 +28,7 @@ function love.load()
     
     Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_CONFIG)
     
-    Keyboard:hookLoveEvents()
+    KM:hookLoveEvents()
 
     EM = EventManager()
     EM:add('on_space')
@@ -52,23 +52,23 @@ function love.update(dt)
     
     sprite:update(dt)
     
-    if Keyboard:key('left') then
+    if KM:key('left') then
         sprite:flipH(true)
         sprite:changeAnimation('run')
-    elseif Keyboard:key('right') then
+    elseif KM:key('right') then
         sprite:flipH(false)
         sprite:changeAnimation('run')
     else
         sprite:changeAnimation('idle')
     end
     
-    if Keyboard:keydown('space') then
+    if KM:keydown('space') then
         EM:dispatch('on_space')
         G_Sounds['jump']:stop()
         G_Sounds['jump']:play()
     end
 
-    Keyboard:update(dt)
+    KM:update(dt)
 end
 
 function love.draw()

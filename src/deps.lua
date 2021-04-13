@@ -30,7 +30,7 @@ _ = require 'lib.jelly.Util'
 Class = require('lib.jelly.modules.Class')
 Vector2 = require('lib.jelly.modules.Vector2')
 Animation = require('lib.jelly.modules.Animation')
-Keyboard = require('lib.jelly.modules.Keyboard')
+KeyboardManager = require('lib.jelly.modules.KeyboardManager')
 EventManager = require('lib.jelly.modules.EventManager')
 
 Sprite = require('lib.jelly.Sprite')
