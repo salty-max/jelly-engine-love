@@ -16,22 +16,22 @@ function SceneManager:new(scenes)
         exit = function() end
     }
     self.scenes = scenes or {}
-    self.currentScene = self.empty
+    self.current = self.empty
 end
 
 function SceneManager:change(sceneID, params)
     assert(self.scenes[sceneID], string.format('SceneManager:change -> scene "%s" does not exist', sceneID))
-    self.currentScene:exit()
-    self.currentScene = self.scenes[sceneID]
-    self.currentScene:enter(params)
+    self.current:exit()
+    self.current = self.scenes[sceneID]()
+    self.current:enter(params)
 end
 
 function SceneManager:update(dt)
-    self.currentScene:update(dt)
+    self.current:update(dt)
 end
 
 function SceneManager:draw()
-    self.currentScene:draw()
+    self.current:draw()
 end
 
 return SceneManager
