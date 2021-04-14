@@ -8,11 +8,7 @@
 
 local KeyboardManager = Class:extends('KeyboardManager')
 
-function KeyboardManager:new()
-    self.keysPressed = {}
-end
-
-function KeyboardManager:hookLoveEvents()
+local function hookLoveEvents(self)
     function love.keypressed(key)
         self.keysPressed[key] = true
     end
@@ -20,6 +16,12 @@ function KeyboardManager:hookLoveEvents()
     function love.keyreleased(key)
         self.keysPressed[key] = false
     end
+end
+
+function KeyboardManager:new()
+    self.keysPressed = {}
+
+    hookLoveEvents(self)
 end
 
 --[[

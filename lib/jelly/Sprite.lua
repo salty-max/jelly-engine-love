@@ -22,6 +22,7 @@ function Sprite:new(data)
 end
 
 function Sprite:createAnimations(animations)
+    assert(type(animations) == 'table', 'Sprite:createAnimations -> animations parameter must be a table')
     local anims = {}
 
     for k,animation in pairs(animations) do

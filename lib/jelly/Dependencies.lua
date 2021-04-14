@@ -9,5 +9,7 @@ Animation = require('lib.jelly.modules.Animation')
 KeyboardManager = require('lib.jelly.modules.KeyboardManager')
 GamepadManager = require('lib.jelly.modules.GamepadManager')
 Event = require('lib.jelly.modules.Event')
+Scene = require('lib.jelly.modules.Scene')
+SceneManager = require('lib.jelly.modules.SceneManager')
 
 Sprite = require('lib.jelly.Sprite')

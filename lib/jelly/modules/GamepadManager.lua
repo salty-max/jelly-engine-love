@@ -37,7 +37,6 @@ local function hookLoveEvents(self)
 
     function love.gamepadpressed(joystick, button)
         local id = joystick:getID()
-        print(button)
         self.buttonMap[id][button] = true
     end
 
