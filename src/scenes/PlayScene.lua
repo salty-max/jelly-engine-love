@@ -51,7 +51,7 @@ function PlayScene:update(dt)
 end
 
 function PlayScene:draw()
-    love.graphics.clear(_.rgbaToLove(52, 73, 94, 255))
+    love.graphics.clear(PALETTE['blue'])
     self.player:draw()
 end
 

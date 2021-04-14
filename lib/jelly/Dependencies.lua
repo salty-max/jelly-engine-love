@@ -13,3 +13,5 @@ Scene = require('lib.jelly.modules.Scene')
 SceneManager = require('lib.jelly.modules.managers.SceneManager')
 
 Sprite = require('lib.jelly.Sprite')
+
+Logo = love.graphics.newImage('lib/jelly/logo.png')
