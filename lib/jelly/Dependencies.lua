@@ -1,24 +1,29 @@
 _ = require 'lib.jelly.Util'
 
 --[[
+    LIBRARIES
+]]
+Push = require 'lib.jelly.lib.push'
+
+--[[
     MODULES
 ]]
-Class = require('lib.jelly.modules.Class')
-Vector2 = require('lib.jelly.modules.Vector2')
-Animation = require('lib.jelly.modules.Animation')
-KeyboardManager = require('lib.jelly.modules.managers.KeyboardManager')
-GamepadManager = require('lib.jelly.modules.managers.GamepadManager')
-MouseManager = require('lib.jelly.modules.managers.MouseManager')
-Event = require('lib.jelly.modules.Event')
-Scene = require('lib.jelly.modules.Scene')
-SceneManager = require('lib.jelly.modules.managers.SceneManager')
-Drawable = require('lib.jelly.modules.Drawable')
+Class = require 'lib.jelly.modules.Class'
+Vector2 = require 'lib.jelly.modules.Vector2'
+Animation = require 'lib.jelly.modules.Animation'
+KeyboardManager = require 'lib.jelly.modules.managers.KeyboardManager'
+GamepadManager = require 'lib.jelly.modules.managers.GamepadManager'
+MouseManager = require 'lib.jelly.modules.managers.MouseManager'
+Event = require 'lib.jelly.modules.Event'
+Scene = require 'lib.jelly.modules.Scene'
+SceneManager = require 'lib.jelly.modules.managers.SceneManager'
+Drawable = require 'lib.jelly.modules.Drawable'
 
-Sprite = require('lib.jelly.Sprite')
+Sprite = require 'lib.jelly.Sprite'
 
 --[[
     UI
 ]]
-Button = require('lib.jelly.modules.ui.Button')
+Button = require 'lib.jelly.modules.ui.Button'
 
-Logo = love.graphics.newImage('lib/jelly/logo.png')
+Logo = love.graphics.newImage 'lib/jelly/logo.png'

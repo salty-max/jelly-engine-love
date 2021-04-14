@@ -10,7 +10,6 @@
      LIBRARIES
 ]]
 require 'lib.jelly.dependencies'
-Push = require 'lib.push'
 Timer = require 'lib.knife.timer'
 
 --[[

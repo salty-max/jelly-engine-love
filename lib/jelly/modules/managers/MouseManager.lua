@@ -46,7 +46,7 @@ function MouseManager:buttonup(button)
 end
 
 function MouseManager:getPos()
-    return Vector2(love.mouse.getX(), love.mouse.getY())
+    return Vector2(Push:toGame(love.mouse.getX(), love.mouse.getY()))
 end
 
 function MouseManager:update(dt)

@@ -23,6 +23,7 @@ function love.load()
 
     
     KM = KeyboardManager()
+    MM = MouseManager()
     GPM = GamepadManager(true)
     SM = SceneManager ('src.scenes', { 'StartScene', 'PlayScene' })
 
@@ -47,6 +48,7 @@ function love.update(dt)
     SM:update(dt)
 
     KM:update(dt)
+    MM:update(dt)
     GPM:update(dt)
 end
 
