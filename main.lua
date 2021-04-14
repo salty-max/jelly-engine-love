@@ -32,11 +32,8 @@ function love.load()
         print('controller ' ..joyId.. ' removed')
     end)
 
-    SM = SceneManager {
-        ['start'] = function() return StartScene() end,
-        ['play'] = function() return PlayScene() end,
-    }
-    SM:change('start')
+    SM = SceneManager ('src.scenes', { 'StartScene', 'PlayScene' })
+    SM:change('StartScene')
 end
 
 function love.resize(w, h)

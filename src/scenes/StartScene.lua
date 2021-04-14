@@ -12,7 +12,7 @@ function StartScene:update(dt)
     if KM:keydown('escape') then love.event.quit() end
 
     if KM:keydown('enter') or KM:keydown('return') or GPM:buttondown('start') then
-        SM:change('play')
+        SM:change('PlayScene')
     end
 end
 

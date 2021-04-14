@@ -6,7 +6,12 @@
     https://github.com/salty-max
 ]]
 
-require 'lib.jelly.Dependencies'
+--[[
+     LIBRARIES
+]]
+require 'lib.jelly.dependencies'
+Push = require 'lib.push'
+Timer = require 'lib.knife.timer'
 
 --[[
     MISC
@@ -17,19 +22,6 @@ require 'src.constants'
     DATA DEFINITIONS
 ]]
 require 'src.data.entity_defs'
-
---[[
-     LIBRARIES
-]]
-Push = require 'lib.push'
-Timer = require 'lib.knife.timer'
--- Event = require 'lib.knife.event'
-
---[[
-    SCENES
-]]
-StartScene = require('src.scenes.StartScene')
-PlayScene = require('src.scenes.PlayScene')
 
 --[[
     ASSETS
