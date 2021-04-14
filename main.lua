@@ -24,6 +24,7 @@ function love.load()
     
     KM = KeyboardManager()
     GPM = GamepadManager(true)
+    SM = SceneManager ('src.scenes', { 'StartScene', 'PlayScene' })
 
     GPM.event:hook('controller_added', function(joyId)
         print('controller ' ..joyId.. ' added')
@@ -32,7 +33,6 @@ function love.load()
         print('controller ' ..joyId.. ' removed')
     end)
 
-    SM = SceneManager ('src.scenes', { 'StartScene', 'PlayScene' })
     SM:change('StartScene')
 end
 

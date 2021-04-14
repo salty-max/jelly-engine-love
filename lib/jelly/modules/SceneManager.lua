@@ -43,6 +43,12 @@ function SceneManager:remove(scene)
     self.scenes[scene] = nil
 end
 
+function SceneManager:pop(params)
+    assert(self.previous, 'SceneManager:pop -> no previous scene is defined')
+    self:change(self.previous:getType(), params)
+    self.previous = empty
+end
+
 function SceneManager:list()
     local sceneNames
     for k,v in pairs(self.scenes) do

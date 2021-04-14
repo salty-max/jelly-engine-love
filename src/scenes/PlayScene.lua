@@ -43,6 +43,10 @@ function PlayScene:update(dt)
         G_Sounds['jump']:play()
     end
 
+    if GPM:buttondown(1, 'b') then
+        SM:pop()
+    end
+
     self.player:update(dt)
 end
 
