@@ -11,7 +11,7 @@ local StartScene = Scene:extends('StartScene')
 function StartScene:update(dt)
     if KM:keydown('escape') then love.event.quit() end
 
-    if KM:keydown('enter') or KM:keydown('return') or GPM:buttondown('start') then
+    if KM:keydown('enter') or KM:keydown('return') or GPM:buttondown(1, 'start') then
         SM:change('PlayScene')
     end
 end
