@@ -51,7 +51,7 @@ function _.dump(t)
         local s = '{ '
         for k,v in pairs(t) do
             if type(k) ~= 'number' then k = '"' ..k.. '"' end
-            s = s .. '['..k..'] = ' .. _.Dump(v) .. ','
+            s = s .. '['..k..'] = ' .. _.dump(v) .. ','
         end
         return s .. '} '
     else
