@@ -13,7 +13,8 @@ function PlayScene:new()
         animations = ENTITY_DEFS['player'].animations,
         position = Vector2(VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2),
         size = Vector2(TILE_SIZE, TILE_SIZE),
-        scale = Vector2(8, 8)
+        scale = Vector2(8, 8),
+        origin = 'center'
     }
     self.player:changeAnimation('idle')
 

@@ -11,7 +11,13 @@ GamepadManager = require('lib.jelly.modules.managers.GamepadManager')
 Event = require('lib.jelly.modules.Event')
 Scene = require('lib.jelly.modules.Scene')
 SceneManager = require('lib.jelly.modules.managers.SceneManager')
+Drawable = require('lib.jelly.modules.Drawable')
 
 Sprite = require('lib.jelly.Sprite')
+
+--[[
+    UI
+]]
+Button = require('lib.jelly.modules.ui.Button')
 
 Logo = love.graphics.newImage('lib/jelly/logo.png')
