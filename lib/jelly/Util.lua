@@ -27,7 +27,7 @@ function _.generateQuads(atlas, tileWidth, tileHeight, paddingX, paddingY)
 end
 
 function _.rgbaToLove(r, g, b, a)
-    return { r/255, g/255, b/255, a/255 }
+    return { r/255, g/255, b/255, (a or 255)/255 }
 end
 
 function _.uuid()
@@ -71,7 +71,7 @@ end
 
 function _.displayFPS()
     love.graphics.setFont(G_Fonts['medium'])
-    love.graphics.setColor(_.rgbaToLove(11, 232, 129, 255))
+    love.graphics.setColor(PALETTE['green'])
     love.graphics.print('FPS: ' .. love.timer.getFPS(), 8, VIRTUAL_HEIGHT - TILE_SIZE)
     love.graphics.setColor(1, 1, 1, 1)
 end
