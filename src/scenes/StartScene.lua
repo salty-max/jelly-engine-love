@@ -8,14 +8,12 @@
 
 local StartScene = Scene:extends('StartScene')
 
-function StartScene:new()
-    self.KM = KeyboardManager()
-end
-
 function StartScene:update(dt)
-    if self.KM:keydown('escape') then love.event.quit() end
+    if KM:keydown('escape') then love.event.quit() end
 
-    self.KM:update(dt)
+    if KM:keydown('enter') or KM:keydown('return') or GPM:buttondown('start') then
+        SM:change('play')
+    end
 end
 
 function Scene:draw()

@@ -29,6 +29,7 @@ Timer = require 'lib.knife.timer'
     SCENES
 ]]
 StartScene = require('src.scenes.StartScene')
+PlayScene = require('src.scenes.PlayScene')
 
 --[[
     ASSETS
