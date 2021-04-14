@@ -6,6 +6,8 @@
     https://github.com/salty-max
 ]]
 
+require 'lib.jelly.Dependencies'
+
 --[[
     MISC
 ]]
@@ -21,7 +23,6 @@ require 'src.data.entity_defs'
 ]]
 Push = require 'lib.push'
 Timer = require 'lib.knife.timer'
-_ = require 'lib.jelly.Util'
 -- Event = require 'lib.knife.event'
 
 --[[
@@ -30,8 +31,9 @@ _ = require 'lib.jelly.Util'
 Class = require('lib.jelly.modules.Class')
 Vector2 = require('lib.jelly.modules.Vector2')
 Animation = require('lib.jelly.modules.Animation')
-Keyboard = require('lib.jelly.modules.Keyboard')
-EventManager = require('lib.jelly.modules.EventManager')
+KeyboardManager = require('lib.jelly.modules.KeyboardManager')
+GamepadManager = require('lib.jelly.modules.GamepadManager')
+Event = require('lib.jelly.modules.Event')
 
 Sprite = require('lib.jelly.Sprite')
 

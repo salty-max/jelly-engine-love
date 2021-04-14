@@ -20,7 +20,8 @@ local sprite = Sprite {
     scale = Vector2(8, 8)
 }
 
-local Keyboard = Keyboard()
+local KM = KeyboardManager()
+local GPM = GamepadManager(true)
 
 function love.load()
     love.window.setTitle(TITLE)
@@ -28,17 +29,22 @@ function love.load()
     
     Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_CONFIG)
     
-    Keyboard:hookLoveEvents()
+    KM:hookLoveEvents()
 
-    EM = EventManager()
-    EM:add('on_space')
-    EM:hook('on_space', OnSpace)
+    Event = Event()
+    Event:add('on_space')
+    Event:hook('on_space', function()
+        print('Spaace... SPAAAAAAAACE!')
+    end)
+
+    GPM.event:hook('controller_added', function(joyId)
+        print('controller ' ..joyId.. ' added')
+    end)
+    GPM.event:hook('controller_removed', function(joyId)
+        print('controller ' ..joyId.. ' removed')
+    end)
     
     sprite:changeAnimation('swim')
-end
-
-function OnSpace()
-    print('Spaace... SPAAAAAAAACE!')
 end
 
 function love.resize(w, h)
@@ -52,23 +58,24 @@ function love.update(dt)
     
     sprite:update(dt)
     
-    if Keyboard:key('left') then
+    if KM:key('left') or GPM:button(1, 'dpleft') then
         sprite:flipH(true)
         sprite:changeAnimation('run')
-    elseif Keyboard:key('right') then
+    elseif KM:key('right') or GPM:button(1, 'dpright') then
         sprite:flipH(false)
         sprite:changeAnimation('run')
     else
         sprite:changeAnimation('idle')
     end
     
-    if Keyboard:keydown('space') then
-        EM:dispatch('on_space')
+    if KM:keydown('space') or GPM:buttondown(1, 'a') then
+        Event:dispatch('on_space')
         G_Sounds['jump']:stop()
         G_Sounds['jump']:play()
     end
 
-    Keyboard:update(dt)
+    KM:update(dt)
+    GPM:update(dt)
 end
 
 function love.draw()
