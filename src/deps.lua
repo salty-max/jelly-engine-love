@@ -31,9 +31,9 @@ G_Sounds = {
 }
 
 G_Fonts = {
-    ['small'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE / 4),
-    ['medium'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE / 2),
-    ['large'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE)
+    ['small'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE / 2),
+    ['medium'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE),
+    ['large'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE * 2)
 }
 
 G_Textures = {
