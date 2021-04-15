@@ -18,34 +18,33 @@ function PlayScene:new()
     }
     self.player:changeAnimation('idle')
 
-    self.event = Event()
-    self.event:add('on_space')
-    self.event:hook('on_space', function()
+    _G.event:add('on_space')
+    _G.event:hook('on_space', function()
         print('Spaace... SPAAAAAAAACE!')
     end)
 end
 
 function PlayScene:update(dt)
-    if KM:keydown('escape') then love.event.quit() end
+    if _G.keyboard:keydown('escape') then love.event.quit() end
 
-    if KM:key('left') or GPM:button(1, 'dpleft') then
+    if _G.keyboard:key('left') or _G.gamepad:button(1, 'dpleft') then
         self.player:flipH(true)
         self.player:changeAnimation('run')
-    elseif KM:key('right') or GPM:button(1, 'dpright') then
+    elseif _G.keyboard:key('right') or _G.gamepad:button(1, 'dpright') then
         self.player:flipH(false)
         self.player:changeAnimation('run')
     else
         self.player:changeAnimation('idle')
     end
     
-    if KM:keydown('space') or GPM:buttondown(1, 'a') then
-        self.event:dispatch('on_space')
-        G_Sounds['jump']:stop()
-        G_Sounds['jump']:play()
+    if _G.keyboard:keydown('space') or _G.gamepad:buttondown(1, 'a') then
+        _G.event:dispatch('on_space')
+        _G.sounds['jump']:stop()
+        _G.sounds['jump']:play()
     end
 
-    if GPM:buttondown(1, 'b') then
-        SM:pop()
+    if _G.gamepad:buttondown(1, 'b') then
+        _G.sceneManager:pop()
     end
 
     self.player:update(dt)

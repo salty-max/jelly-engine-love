@@ -67,8 +67,8 @@ end
 
 function Sprite:draw()
     love.graphics.draw(
-        G_Textures[self.currentAnimation.texture],
-        G_Frames[self.currentAnimation.texture][self.currentAnimation:getCurrentFrame()],
+        _G.textures[self.currentAnimation.texture],
+        _G.frames[self.currentAnimation.texture][self.currentAnimation:getCurrentFrame()],
         self.position.x, self.position.y,
         math.rad(self.rotation), self.scale.x * self.flip.x, self.scale.y * self.flip.y,
         self.origin.x, self.origin.y

@@ -70,7 +70,7 @@ function _.indexOf(tbl, item)
 end
 
 function _.displayFPS()
-    love.graphics.setFont(G_Fonts['small'])
+    love.graphics.setFont(_G.fonts['small'])
     love.graphics.setColor(PALETTE['green'])
     love.graphics.print('FPS: ' .. love.timer.getFPS(), 8, VIRTUAL_HEIGHT - TILE_SIZE)
     love.graphics.setColor(1, 1, 1, 1)

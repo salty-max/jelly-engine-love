@@ -1,3 +1,18 @@
+TITLE = 'JELLY ENGINE'
+
+TILE_SIZE = 16
+
+VIRTUAL_WIDTH = TILE_SIZE * 16
+VIRTUAL_HEIGHT = TILE_SIZE * 16
+WINDOW_WIDTH = VIRTUAL_WIDTH * 2
+WINDOW_HEIGHT = VIRTUAL_HEIGHT * 2
+
+WINDOW_CONFIG = {
+    vsync = true,
+    resizable = true,
+    fullscreen = false
+}
+
 DEAD_ZONE = 0.1
 
 PALETTE = {

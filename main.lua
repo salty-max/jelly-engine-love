@@ -22,19 +22,20 @@ function love.load()
     Push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_CONFIG)
 
     
-    KM = KeyboardManager()
-    MM = MouseManager()
-    GPM = GamepadManager(true)
-    SM = SceneManager ('src.scenes', { 'StartScene', 'PlayScene' })
+    _G.event = Event(false)
+    _G.keyboard = KeyboardManager()
+    _G.mouse = MouseManager()
+    _G.gamepad = GamepadManager(true)
+    _G.sceneManager = SceneManager ('src.scenes', { 'StartScene', 'PlayScene' })
 
-    GPM.event:hook('controller_added', function(joyId)
+    _G.event:hook('controller_added', function(joyId)
         print('controller ' ..joyId.. ' added')
     end)
-    GPM.event:hook('controller_removed', function(joyId)
+    _G.event:hook('controller_removed', function(joyId)
         print('controller ' ..joyId.. ' removed')
     end)
 
-    SM:change('StartScene')
+    _G.sceneManager:change('StartScene')
 end
 
 function love.resize(w, h)
@@ -45,17 +46,17 @@ function love.update(dt)
     -- avoid freeze on update pause
     if dt > 0.036 then return end
 
-    SM:update(dt)
+    _G.sceneManager:update(dt)
 
-    KM:update(dt)
-    MM:update(dt)
-    GPM:update(dt)
+    _G.keyboard:update(dt)
+    _G.mouse:update(dt)
+    _G.gamepad:update(dt)
 end
 
 function love.draw()
     Push:start()
 
-    SM:draw()
+    _G.sceneManager:draw()
 
     _.displayFPS()
     Push:finish()

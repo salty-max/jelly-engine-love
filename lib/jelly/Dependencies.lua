@@ -1,5 +1,31 @@
 _ = require 'lib.jelly.Util'
 
+require 'lib.jelly.conf.config'
+
+--[[
+    ASSETS
+]]
+Logo = love.graphics.newImage('lib/jelly/logo.png')
+
+_G.fonts = {
+    ['small'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE / 2),
+    ['medium'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE),
+    ['large'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE * 2)
+}
+
+_G.sounds = {
+    ['jump'] = love.audio.newSource('assets/sounds/smb_jump-small.wav', 'static')
+}
+
+_G.textures = {
+    ['dude'] = love.graphics.newImage('assets/graphics/dude.png'),
+    ['logo'] = love.graphics.newImage('lib/jelly/logo.png')
+}
+
+_G.frames = {
+    ['dude'] = _.generateQuads(_G.textures['dude'], TILE_SIZE, TILE_SIZE, TILE_SIZE, TILE_SIZE),
+}
+
 --[[
     LIBRARIES
 ]]
@@ -25,5 +51,3 @@ Sprite = require 'lib.jelly.Sprite'
     UI
 ]]
 Button = require 'lib.jelly.modules.ui.Button'
-
-Logo = love.graphics.newImage 'lib/jelly/logo.png'
