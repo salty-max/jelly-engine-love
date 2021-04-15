@@ -20,7 +20,7 @@ local function hookLoveEvents(self)
         self.isConnected[id] = true
         self.buttonMap[id] = {}
         
-        self.event:dispatch('controller_added', id)
+        _Game.event:dispatch('controller_added', id)
     end
     
     function love.joystickremoved(joystick)
@@ -32,7 +32,7 @@ local function hookLoveEvents(self)
         self.isConnected[id] = false
         self.buttonMap[id] = nil
 
-        self.event:dispatch('controller_removed', id)
+        _Game.event:dispatch('controller_removed', id)
     end
 
     function love.gamepadpressed(joystick, button)
@@ -59,10 +59,8 @@ function GamepadManager:new(adEnabled)
     -- where the key is a button and the value is either true = just_pressed,
     -- false = just_release, nil = none
     self.buttonMap = {}
-
-    self.event = Event()
-    self.event:add('controller_added')
-    self.event:add('controller_removed')
+    _Game.event:add('controller_added')
+    _Game.event:add('controller_removed')
 
     hookLoveEvents(self)
 end

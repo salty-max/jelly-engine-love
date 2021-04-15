@@ -6,7 +6,7 @@
     https://github.com/salty-max
 ]]
 
-local Sprite = Class:extends('Sprite')
+local Sprite = Drawable:extends('Sprite')
 
 function Sprite:new(data)
     self.animations = self:createAnimations(data.animations)
@@ -15,10 +15,11 @@ function Sprite:new(data)
     
     self.rotation = data.rotation or 0
     self.scale = data.scale or Vector2(1, 1)
-    self.origin = data.origin or Vector2(self.size.x / 2, self.size.y / 2)
+    self.origin = Vector2(0, 0)
     
     self.flip = Vector2(1, 1)
     self.currentAnimation = nil
+    self:setOrigin(data.origin or 'center')
 end
 
 function Sprite:createAnimations(animations)
@@ -66,8 +67,8 @@ end
 
 function Sprite:draw()
     love.graphics.draw(
-        G_Textures[self.currentAnimation.texture],
-        G_Frames[self.currentAnimation.texture][self.currentAnimation:getCurrentFrame()],
+        _G.textures[self.currentAnimation.texture],
+        _G.frames[self.currentAnimation.texture][self.currentAnimation:getCurrentFrame()],
         self.position.x, self.position.y,
         math.rad(self.rotation), self.scale.x * self.flip.x, self.scale.y * self.flip.y,
         self.origin.x, self.origin.y

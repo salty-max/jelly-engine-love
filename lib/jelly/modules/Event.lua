@@ -17,9 +17,9 @@ end
     Adds a listener to the registry
 ]]
 function Event:add(t)
-    assert(self.listeners[t] == nil, string.format('Event:add -> event "%s" already exists', t))
-
-    self.listeners[t] = {}
+    if self.listeners[t] == nil then
+        self.listeners[t] = {}
+    end
 end
 
 function Event:remove(t)
