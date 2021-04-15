@@ -16,9 +16,9 @@ WINDOW_CONFIG = {
 DEAD_ZONE = 0.1
 
 PALETTE = {
-    ['black']           = _.rgbaToLove(0,0,0),            -- #000000
+    ['black']           = _.rgbaToLove(0,0,0),          -- #000000
     ['dark-blue']       = _.rgbaToLove(29,43,83),       -- #1D2B53
-    ['dark-purple']     = _.rgbaToLove(126,37,83),      -- #73
+    ['dark-purple']     = _.rgbaToLove(126,37,83),      -- #7E2553
     ['dark-green']      = _.rgbaToLove(0,135,81),       -- #008751
     ['brown']           = _.rgbaToLove(171,82,54),      -- #AB5236
     ['dark-grey']       = _.rgbaToLove(95,87,79),       -- #5F574F

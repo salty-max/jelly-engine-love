@@ -13,13 +13,13 @@ local function onClick(button)
 end
 
 function StartScene:new()
-    self.button = Button {
+    self.button = Button('PLAY', {
         position = Vector2(VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2),
-        label = 'PLAY',
-        size = Vector2(128, 32),
         colors = { default = PALETTE['green'], highlighted = PALETTE['dark-green'], pressed = PALETTE['green'], disabled = PALETTE['dark-grey'] },
+        labelColors = { default = PALETTE['white'], highlighted = PALETTE['green'], pressed = PALETTE['white'], disabled = PALETTE['light-grey'] },
         radius = Vector2(4, 4),
-    }
+        padding = Vector2(8, 8),
+    })
 end
 
 function StartScene:enter()
