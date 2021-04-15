@@ -17,7 +17,7 @@ _G.sounds = {
 
 _G.textures = {
     ['dude'] = love.graphics.newImage('assets/graphics/dude.png'),
-    ['logo'] = love.graphics.newImage('lib/jelly/logo.png')
+    ['logo'] = love.graphics.newImage('assets/graphics/logo.png')
 }
 
 _G.frames = {
