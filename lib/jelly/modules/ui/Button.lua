@@ -56,12 +56,12 @@ function Button:new(data)
 end
 
 function Button:update(dt)
-    local mousePos = _G.mouse:getPos()
+    local mousePos = _Game.mouse:getPos()
     if not self.disabled then
         if mouseInBounds(self, mousePos.x, mousePos.y) then
-            if _G.mouse:button(1) then
+            if _Game.mouse:button(1) then
                 self.currentColor = self.colors['pressed']
-                _G.event:dispatch('onButtonClick', self)
+                _Game.event:dispatch('onButtonClick', self)
             else
                 self.currentColor = self.colors['highlighted']
             end

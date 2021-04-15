@@ -5,8 +5,6 @@ require 'lib.jelly.conf.config'
 --[[
     ASSETS
 ]]
-Logo = love.graphics.newImage('lib/jelly/logo.png')
-
 _G.fonts = {
     ['small'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE / 2),
     ['medium'] = love.graphics.newFont('assets/fonts/pico8.ttf', TILE_SIZE),
@@ -31,10 +29,12 @@ _G.frames = {
 ]]
 Push = require 'lib.jelly.lib.push'
 
+
 --[[
     MODULES
 ]]
 Class = require 'lib.jelly.modules.Class'
+Game = require 'lib.jelly.Game'
 Vector2 = require 'lib.jelly.modules.Vector2'
 Animation = require 'lib.jelly.modules.Animation'
 KeyboardManager = require 'lib.jelly.modules.managers.KeyboardManager'
